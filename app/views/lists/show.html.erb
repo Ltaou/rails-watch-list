@@ -1,0 +1,16 @@
+<div>
+  <% @list.bookmarks.each do |bookmark| %>
+    <h3 class="p-3 mb-2">
+      <%= bookmark.movie.title %>
+      <%= bookmark.comment %>
+    </h3>
+  <% end %>
+</div>
+
+<div>
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit %>
+<% end %>
+</div>
